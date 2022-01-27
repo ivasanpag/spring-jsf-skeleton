@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <Properties>
+        <Property name="LOG_DIR">/var/log</Property>
+    </Properties>
+
+    <Appenders>
+        <RollingFile
+                name="rollingFile"
+                fileName="${LOG_DIR}/application.log"
+                filePattern="${LOG_DIR}/application.%i.log.gz"
+                ignoreExceptions="false">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5" />
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="org.springframework" level="INFO">
+
+        </Logger>
+
+        <Logger name="javax.faces" level="INFO">
+
+        </Logger>
+
+        <Logger name="org.hibernate" level="WARN">
+
+        </Logger>
+
+        <Logger name="com.ijsp" level="DEBUG">
+
+        </Logger>
+
+        <Root level="DEBUG">
+            <AppenderRef ref="file"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>

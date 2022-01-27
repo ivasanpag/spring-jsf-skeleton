@@ -1,0 +1,17 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:c="http://java.sun.com/jstl/core"
+        xmlns:sec="http://www.springframework.org/security/tags">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <h:form>
+           <h:outputText value="DASHBOARD" />
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </h:form>
+    </h:body>
+</h:html>
