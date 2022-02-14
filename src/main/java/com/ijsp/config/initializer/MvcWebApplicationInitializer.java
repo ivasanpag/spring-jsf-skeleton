@@ -1,16 +1,22 @@
-package com.ijsp.config;
+package com.ijsp.config.initializer;
 
+import com.ijsp.config.DatabaseConfig;
+import com.ijsp.config.SchedulingConfig;
+import com.ijsp.config.SecurityConfig;
+import com.ijsp.config.WebApplicationConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.*;
+import javax.servlet.Filter;
+import javax.servlet.ServletContext;
 
 /**
+ *  This class will be discovered by Spring and be used to register DispatcherServlet and ContextLoaderListener
  * @author ijsp
- * @since 1.0
+ * @since
  */
 @Configuration
 public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

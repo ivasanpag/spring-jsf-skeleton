@@ -1,5 +1,6 @@
 package com.ijsp.config;
 
+import com.ijsp.provider.CustomAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,8 +32,15 @@ import java.util.Map;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] RESOURCES = new String[]{
-            "/css/**", "/icons/**", "/img/**", "/js/**", "/scss/**", "/vendor/**", "/javax.faces.resource/**"
+            "/css/**", "/icons/**", "/img/**", "/js/**", "/javax.faces.resource/**", "/resources/**"
     };
+
+    private final CustomAuthenticationProvider customAuthenticationProvider;
+
+    public SecurityConfig(CustomAuthenticationProvider customAuthenticationProvider) {
+        this.customAuthenticationProvider = customAuthenticationProvider;
+    }
+
     /**
      * Spring Security configuration for HTTP requests
      *
@@ -80,6 +88,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 );
 
 
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(customAuthenticationProvider);
     }
 
     /**

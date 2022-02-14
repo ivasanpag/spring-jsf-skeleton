@@ -125,6 +125,10 @@ public class DatabaseConfig implements ServletContextAware {
         properties.setProperty("hibernate.query.plan_parameter_metadata_max_size", "32");
         properties.setProperty("hibernate.id.new_generator_mappings", "false");
         properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults", "false");
+        properties.setProperty("hibernate.id.optimizer.pooled.preferred", "pooled-lo");
+        properties.setProperty("hibernate.jdbc.batch_size","25");
+        properties.setProperty("hibernate.order_inserts"  ,"true");
+        properties.setProperty("hibernate.order_updates" ,"true");
         properties.setProperty("hibernate.dialect", ConfigUtils.lookupDialect(dbName));
         return properties;
     }
