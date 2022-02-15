@@ -9,3 +9,5 @@ It provides several .xhtml pages to test the roles and check that only an authen
 /dashboard - Users with role ROLE_USER or ROLE_ADMIN.
 /setting - Users with role ROLE_ADMIN.
 ```
+
+Include supports for Spring Security, Spring AOP, Spring Schedule and Spring Data JPA.
